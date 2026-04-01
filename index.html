@@ -7,15 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-gradient: linear-gradient(90deg, #FF8C00, #FFB347);
-            --dark-bg: #0f0f0f;
-            --card-bg: #1a1a1a;
-            --text-main: #ffffff;
-            --text-dim: #b0b0b0;
+            --bg-main: #f8f9fa;       /* Light gray background */
+            --bg-card: #ffffff;       /* Pure white cards */
+            --brand-primary: #0062ff; /* Science Blue */
+            --brand-grad: linear-gradient(135deg, #0062ff, #00d4ff);
+            --text-main: #1a1d20;     /* Deep charcoal text */
+            --text-dim: #5f6368;      /* Muted gray text */
+            --border: #e0e4e8;        /* Subtle borders */
         }
 
         body {
-            background-color: var(--dark-bg);
+            background-color: var(--bg-main);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -25,13 +27,13 @@
 
         /* NAVIGATION BAR */
         nav {
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 5%;
+            padding: 15px 5%;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -42,142 +44,160 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: white;
+            color: var(--text-main);
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
 
         .nav-logo img {
-            height: 35px; /* Adjust based on your RT logo height */
+            height: 32px;
             width: auto;
         }
 
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
-            margin-left: 25px;
+            margin-left: 30px;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            font-size: 0.95rem;
+            transition: 0.2s;
         }
 
-        .nav-links a:hover {
-            color: #FF8C00;
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--brand-primary);
         }
 
-        /* HEADER & BANNER */
+        /* HERO HEADER */
         header {
             width: 100%;
-            background: #000;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 40px 0;
             text-align: center;
-            padding: 0;
-            overflow: hidden;
         }
 
         .main-banner {
-            width: 100%;
-            max-width: 1200px; /* Limits width on ultra-wide screens */
+            width: 90%;
+            max-width: 1100px;
             height: auto;
-            display: block;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             margin: 0 auto;
+            display: block;
         }
 
         /* MAIN CONTENT */
         .container {
             max-width: 1100px;
-            margin: 50px auto;
+            margin: 60px auto;
             padding: 0 20px;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
             text-align: center;
+            font-weight: 800;
         }
 
         .section-title span {
-            background: var(--brand-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--brand-primary);
         }
 
         /* GRID SYSTEM */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid #222;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .card:hover {
             transform: translateY(-8px);
-            border-color: #FF8C00;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--brand-primary);
         }
 
         .card h3 {
             margin-top: 0;
-            color: #FFB347;
+            color: var(--text-main);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
         }
 
         .card p {
             color: var(--text-dim);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: var(--brand-gradient);
-            color: #000;
+            padding: 10px 24px;
+            background: var(--brand-grad);
+            color: white;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 5px 15px rgba(0, 98, 255, 0.3);
+            opacity: 0.9;
         }
 
         /* FOOTER */
         footer {
-            background: #050505;
-            padding: 60px 20px 20px;
-            margin-top: 80px;
-            border-top: 1px solid #222;
+            background: #fff;
+            padding: 60px 20px 30px;
+            margin-top: 100px;
+            border-top: 1px solid var(--border);
             text-align: center;
         }
 
         .footer-links {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .footer-links a {
             color: var(--text-dim);
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1.1rem;
+            font-weight: 500;
+            transition: 0.2s;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--brand-primary);
+        }
+
+        .blue-line {
+            height: 4px;
+            width: 40px;
+            background: var(--brand-grad);
+            margin: 20px auto;
+            border-radius: 2px;
         }
 
         .footer-copy {
-            color: #444;
-            font-size: 0.8rem;
+            color: #999;
+            font-size: 0.85rem;
             margin-top: 20px;
         }
 
-        .orange-line {
-            height: 3px;
-            width: 50px;
-            background: var(--brand-gradient);
-            margin: 20px auto;
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.8rem; }
+            nav { padding: 10px 20px; }
         }
     </style>
 </head>
@@ -189,37 +209,38 @@
         <span>RTech Labs</span>
     </a>
     <div class="nav-links">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
-        <a href="calculator.html">Tools</a> <a href="#projects">Projects</a>
+        <a href="calculator.html">Tools</a>
+        <a href="#projects">Projects</a>
         <a href="#tutorials">YouTube</a>
     </div>
 </nav>
 
 <header>
-    <img src="banner.png" alt="RTech Labs Banner" class="main-banner">
+    <img src="banner.png" alt="RTech Labs Engineering Workbench" class="main-banner">
 </header>
 
 <div class="container">
-    <h2 class="section-title">Latest <span>Lab Projects</span></h2>
+    <h2 class="section-title">Research & <span>Engineering</span></h2>
     
     <div class="grid">
-        <div class="card">
+        <div id="projects" class="card">
             <h3>Embedded Systems</h3>
-            <p>Exploring the world of microcontrollers. Deep dives into ESP32, Arduino, and ARM architecture.</p>
-            <a href="#" class="btn">View Posts</a>
+            <p>Advanced implementations of microcontrollers, RTOS, and signal processing on ARM and ESP32 platforms.</p>
+            <a href="#" class="btn">Explore Projects</a>
         </div>
 
         <div class="card">
-            <h3>Circuit Design</h3>
-            <p>From schematic capture to PCB layout. Mastering the art of hardware design.</p>
-            <a href="#" class="btn">View Posts</a>
+            <h3>RF & Circuit Design</h3>
+            <p>Precision PCB layouts, Time Domain Reflectometry (TDR) analysis, and high-frequency hardware development.</p>
+            <a href="#" class="btn">Technical Docs</a>
         </div>
 
-        <div class="card">
-            <h3>DIY Tutorials</h3>
-            <p>Step-by-step guides for building your own tech gadgets and lab tools.</p>
-            <a href="#" class="btn">View Posts</a>
+        <div id="tutorials" class="card">
+            <h3>Lab Tutorials</h3>
+            <p>Step-by-step guides on instrumentation, circuit simulation (LTSpice/Qucs), and custom lab tools.</p>
+            <a href="#" class="btn">Watch on YouTube</a>
         </div>
     </div>
 </div>
@@ -228,11 +249,11 @@
     <div class="footer-links">
         <a href="#">YouTube</a>
         <a href="#">GitHub</a>
-        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
         <a href="about.html">Contact</a>
     </div>
-    <div class="orange-line"></div>
-    <p>RTech Labs: Electronics | Projects | Tutorials</p>
+    <div class="blue-line"></div>
+    <p style="font-weight: 600; color: #444;">RTech Labs: Electronics | Projects | Tutorials</p>
     <div class="footer-copy">
         &copy; 2026 RTech Labs. All Rights Reserved.
     </div>
