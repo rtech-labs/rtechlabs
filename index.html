@@ -1,15 +1,17 @@
 ---
 layout: default
-title: "Home"
+title: "Research & Engineering"
 ---
 
-<h2 style="color: #1a1a1a; border-bottom: 2px solid #ff6600; padding-bottom: 10px;">Latest Technical Articles</h2>
-
-<ul style="list-style: none; padding: 0;">
+<h2 id="articles" class="section-title">Technical <span>Articles</span></h2>
+    
+<div class="grid">
   {% for post in site.posts %}
-    <li style="margin-bottom: 20px; background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 5px solid #ff6600;">
-      <span style="color: #666; font-size: 0.9em; display: block; margin-bottom: 5px;">{{ post.date | date: "%B %d, %Y" }}</span>
-      <a href="{{ post.url | relative_url }}" style="color: #1a1a1a; font-weight: bold; text-decoration: none; font-size: 1.2em;">{{ post.title }}</a>
-    </li>
+    <div class="card">
+        <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description | default: "Click below to read this technical log entry, implementation notes, and workbench performance analytics." }}</p>
+        <a href="{{ post.url | relative_url }}" class="btn">Read Article</a>
+    </div>
   {% endfor %}
-</ul>
+</div>
